@@ -1,25 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import MUIAutocomplete from './components/MUIAutocomplete';
+import SuccessSlider2 from './components/MUISlider';
 
 function App() {
+  const theme = createTheme({
+    // When pressing CTRL + SPACE you weill see what section of MUI(typography, palette etc) we can customize
+    palette: {
+      common: {
+        black: '#2a2525', // instead of #000
+      },
+    },
+    components: {
+      // Name of the component
+      MuiButtonBase: {
+        defaultProps: {
+          // The props to change the default for.
+          disableRipple: true, // No more ripple, on the whole application 💣!
+        },
+      },
+    },
+    example: {
+      danger: 'red'
+    }
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}> {/* Here I'm injecting the nre customize theme to my entire app */}
+      {/* You can see what the body tag gets from CssBaseline.
+    also its inhered the default MUI theme and your customize theme as well. 
+    I personally think that i should stick with my css reset. */}
+      <CssBaseline />
+      <MUIAutocomplete />
+      <SuccessSlider2 />
+    </ThemeProvider>
   );
 }
 
