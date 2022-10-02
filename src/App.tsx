@@ -19,7 +19,7 @@ function App() {
         },
       },
     },
-    example: {
+    example: { // My custom property
       danger: 'red'
     }
   });

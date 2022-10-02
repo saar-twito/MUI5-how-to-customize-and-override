@@ -1,3 +1,4 @@
+/* Here we can declare our custom properties for the theme*/
 export declare module '@mui/material/styles' {
   /* This for access the theme like in the MUISlider.tsx file */
   interface Theme {
